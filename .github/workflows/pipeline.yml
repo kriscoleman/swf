@@ -75,7 +75,7 @@ jobs:
   #     artifact-upload-path: semgrep.sarif
 
   build:
-    needs: [ unit-test, sast ]
+    needs: [ unit-test ]
     uses: testifysec/witness-run-action/.github/workflows/witness.yml@reusable-workflow
     with:
       pull_request: ${{ github.event_name == 'pull_request' }}
