@@ -84,7 +84,7 @@ jobs:
       command: go build -o bin/software main.go 
   
   build-image:
-    needs: [ unit-test, sast ]
+    needs: [ unit-test ]
     runs-on: ubuntu-latest
 
     permissions:
