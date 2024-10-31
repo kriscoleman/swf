@@ -59,6 +59,7 @@ jobs:
       artifact-upload-name: cover.out
       artifact-upload-path: cover.out
 
+  ## Put this back in for demo to get Semgrep directive to pass
   # sast:
   #   needs: [ fmt, vet, lint ]
   #   uses: testifysec/witness-run-action/.github/workflows/witness.yml@reusable-workflow
