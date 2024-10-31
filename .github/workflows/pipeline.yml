@@ -61,19 +61,19 @@ jobs:
       artifact-upload-path: cover.out
 
   ## Put this back in for demo to get Semgrep directive to pass
-  # sast:
-  #   needs: [ fmt, vet, lint ]
-  #   uses: testifysec/witness-run-action/.github/workflows/witness.yml@reusable-workflow
-  #   with:
-  #     pull_request: ${{ github.event_name == 'pull_request' }}
-  #     step: sast
-  #     pre-command-attestations: "git github environment"
-  #     attestations: "git github environment"
-  #     archivista-server: "https://judge-api.aws-staging.testifysec.dev"      
-  #     pre-command: python3 -m pip install semgrep==1.45.0
-  #     command: semgrep scan --config auto ./ --sarif -o semgrep.sarif
-  #     artifact-upload-name: semgrep.sarif
-  #     artifact-upload-path: semgrep.sarif
+  sast:
+    needs: [ fmt, vet, lint ]
+    uses: testifysec/witness-run-action/.github/workflows/witness.yml@reusable-workflow
+    with:
+      pull_request: ${{ github.event_name == 'pull_request' }}
+      step: sast
+      pre-command-attestations: "git github environment"
+      attestations: "git github environment"
+      archivista-server: "https://judge-api.aws-staging.testifysec.dev"      
+      pre-command: python3 -m pip install semgrep==1.45.0
+      command: semgrep scan --config auto ./ --sarif -o semgrep.sarif
+      artifact-upload-name: semgrep.sarif
+      artifact-upload-path: semgrep.sarif
 
   build:
     needs: [ unit-test ]
