@@ -47,7 +47,7 @@ jobs:
       artifact-upload-name: hadolint.sarif
       artifact-upload-path: hadolint.sarif
 
-  #
+  # unit tests
   unit-test:
     needs: [ fmt, vet, lint ]
     uses: testifysec/witness-run-action/.github/workflows/witness.yml@reusable-workflow
